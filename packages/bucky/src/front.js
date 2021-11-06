@@ -38,7 +38,7 @@ point.hemEdge
   for (let i in paths) {
       if (['frontArmhole', 'frontCollar'].indexOf(i) === -1) delete paths[i]
   }
-  //for (let i in snippets) delete snippets[i]
+  for (let i in snippets) delete snippets[i]
 
   // Paths
 
