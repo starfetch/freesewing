@@ -22,6 +22,7 @@ for (let m of fromBent) {
 
 // Attach draft methods from Carlton to prototype
 for (let m of [
+    'draftFront',
   'draftBack',
   'draftTail',
   'draftTopSleeve',
