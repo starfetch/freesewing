@@ -6,7 +6,7 @@ import Carlton from '@freesewing/carlton'
 import config from '../config'
 // Parts
 import draftFront from './front'
-import draftSide from './side'
+//import draftSide from './side'
 
 // Create new design
 const Pattern = new freesewing.Design(config, [plugins, bust])
@@ -26,15 +26,15 @@ for (let m of [
   'draftTail',
   'draftTopSleeve',
   'draftUnderSleeve',
-  'draftBelt',
-  'draftCollarStand',
-  'draftCollar',
+//  'draftBelt',
+//  'draftCollarStand',
+//  'draftCollar',
   'draftCuffFacing',
   'draftPocket',
   'draftPocketFlap',
   'draftPocketLining',
-  'draftChestPocketWelt',
-  'draftChestPocketBag',
+ // 'draftChestPocketWelt',
+ // 'draftChestPocketBag',
   'draftInnerPocketWelt',
   'draftInnerPocketBag',
   'draftInnerPocketTab',
@@ -50,7 +50,7 @@ Pattern.prototype.draftCarltonFront = function (part) {
 
 // Attach own draft methods to prototype
 Pattern.prototype.draftFront = draftFront
-Pattern.prototype.draftSide = draftSide
+//Pattern.prototype.draftSide = draftSide
 
 export default Pattern
 
