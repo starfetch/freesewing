@@ -176,7 +176,7 @@ export default {
     // Carlton options
     waistEase: { pct: 14, min: 8, max: 25 },
     seatEase: { pct: 14, min: 8, max: 25 },
-    length: { pct: 69, min: 35, max: 100 },
+    length: { pct: 110, min: 60, max: 150 },
     buttonSpacingHorizontal: { pct: 43.5, min: 15, max: 60 },
     frontOverlap: { pct: 1.5, min: 1, max: 2 },
     lapelReduction: { pct: 5, min: 0, max: 10 },

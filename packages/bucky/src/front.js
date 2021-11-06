@@ -16,9 +16,22 @@ export default function (part) {
     Path,
   } = part.shorthand()
 
+    /*
+some notes: 
+useful points:
+point.cfNeck
+point.cbHps
+point.seat
+point.waist
+point.hemEdge
 
+*/
 
+    const upperLeg = measurements.waistToUpperLeg * options.length
 
+    points.upperLeg = points.waist.shift(-90,upperLeg)
+    points.hem = points.seat.shift(-90,points.seat.dy(points.upperLeg))
+    points.hemEdge = points.hem.shift(0,points.hem.dx(points.hemEdge)) // interesting, dynamic variable renaming
 
 
   // Clean up
