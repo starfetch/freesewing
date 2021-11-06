@@ -35,26 +35,31 @@ point.hemEdge
 
 
   // Clean up
- /* for (let i in paths) {
-    if (['frontArmhole', 'frontCollar'].indexOf(i) === -1) delete paths[i]
+  for (let i in paths) {
+      if (['frontArmhole', 'frontCollar'].indexOf(i) === -1) delete paths[i]
   }
-  for (let i in snippets) delete snippets[i]
-*/
+  //for (let i in snippets) delete snippets[i]
+
   // Paths
 
-/*    paths.saBase = new Path()
-    .move(points.psHem)
-    .line(points.bustPoint)
-    .curve_(points.bustPointCp1, points.armholePitch)
+     paths.saBase = new Path()
+    .move(points.hem)
+    .line(points.seat)
+    .curve(points.seatCp2, points.waistCp1, points.waist)
+    .curve_(points.waistCp2, points.armhole)
+    .curve(points.armholeCp2, points.armholeHollowCp1, points.armholeHollow)
+    .curve(points.armholeHollowCp2, points.armholePitchCp1, points.armholePitch)
     .join(paths.frontArmhole)
     .line(points.s3CollarSplit)
     .join(paths.frontCollar)
     .line(points.collarTip)
     ._curve(points.lapelStraightEndCp1, points.lapelStraightEnd)
     .line(points.hemEdge)
-    .line(points.flbHem)
-  paths.seam = paths.saBase.clone().line(points.psHem).close().attr('class', 'fabric')
-*/
+//    .line(points.flbHem)
+  paths.hemBase = new Path().move(points.hem).line(points.hemEdge)
+  paths.saBase.render = false
+  paths.hemBase.render = false
+  paths.seam = paths.saBase.join(paths.hemBase).close().attr('class', 'fabric')
 
 
   if (complete) {
