@@ -72,7 +72,8 @@ export default {
     'wrist',
     'waistToFloor',
     'waistToSeat',
-    'seat',
+      'waistToUpperLeg',
+      'seat',
     // For breasts
     'highBust',
     'bustSpan',
