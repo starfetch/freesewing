@@ -6,6 +6,7 @@ import Carlton from '@freesewing/carlton'
 import config from '../config'
 // Parts
 import draftFront from './front'
+import draftClosure from './closure'
 //import draftSide from './side'
 
 // Create new design
@@ -51,7 +52,7 @@ Pattern.prototype.draftCarltonFront = function (part) {
 
 // Attach own draft methods to prototype
 Pattern.prototype.draftFront = draftFront
-//Pattern.prototype.draftSide = draftSide
+Pattern.prototype.draftClosure = draftClosure
 
 export default Pattern
 

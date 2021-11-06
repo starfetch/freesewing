@@ -103,6 +103,7 @@ export default {
     innerPocketTab: 'carltonFront',
     front: 'carltonFront',
 //    side: 'front',
+      closure: 'front'
   },
   inject: {
     bentBack: 'bentBase',
@@ -115,7 +116,8 @@ export default {
     underSleeve: 'bentUnderSleeve',
  //   collar: 'collarStand',
     pocketLining: 'pocket',
-    front: 'carltonFront',
+      front: 'carltonFront',
+      closure: 'front'
  //   side: 'front',
   },
   hide: [
@@ -143,7 +145,8 @@ export default {
  //   'chestPocketBag',
     'innerPocketWelt',
     'innerPocketBag',
-    'innerPocketTab',
+      'innerPocketTab',
+      'closure'
   ],
   options: {
     // Constants
