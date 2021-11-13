@@ -1,6 +1,66 @@
 # Change log for: FreeSewing (global)
 
 
+## 2.19.5 (2022-11-13)
+
+### charlie
+
+#### Changed
+
+ - Updated the `waistHeight` options to increase both min and max values
+
+#### Fixed
+
+ - Fix issue where a very low waist caused the fly to be incorrectly drawn This only happens at unrealistic waist heights, so I changed the option minimum value instead. Closes [#1486](https://github.com/freesewing/freesewing/issues/1486)
+
+### core
+
+#### Fixed
+
+ - Fixed a copy-paste error that caused the `absoluteOptions` shorthand property to be a proxy for the regular options object instead. Note that this bug (and proxying in general) only occurs in debug mode.
+
+### penelope
+
+#### Changed
+
+ - Increased maximum for the `waistEase` option
+ - Increased maximum for the `seatEase` options
+
+### yuri
+
+#### Fixed
+
+ - Fix seam allowance on back, gusset and hood center parts Closes [#1464](https://github.com/freesewing/freesewing/issues/1464)
+
+
+## 2.19.4 (2022-11-09)
+
+### paco
+
+#### Fixed
+
+ - Make paperless markings available when detail is disabled Closes [#1400](https://github.com/freesewing/freesewing/issues/1401)
+ - Make pocket flaps properly parametric Closes [#1401](https://github.com/freesewing/freesewing/issues/1401)
+
+### simon
+
+#### Fixed
+
+ - Fix dependencies when only drafting a front Closes [#1445](https://github.com/freesewing/freesewing/issues/1445)
+
+### simone
+
+#### Fixed
+
+ - Fix dependencies when only drafting a front Closes [#1445](https://github.com/freesewing/freesewing/issues/1445)
+
+### titan
+
+#### Fixed
+
+ - Fixed a regression that caused the `waistHeight` option to be ignored. Closes [#1467](https://github.com/freesewing/freesewing/issues/1467)
+
+
 ## 2.19.3 (2021-11-05)
 
 ### charlie
