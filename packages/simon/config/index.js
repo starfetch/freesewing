@@ -199,7 +199,7 @@ export default {
     buttonholePlacketWidth: { pct: 8, min: 4, max: 12 },
     buttonholePlacketFoldWidth: { pct: 16, min: 8, max: 24 },
     collarStandWidth: { pct: 8, min: 3, max: 13 },
-    sleevePlacketWidth: { pct: 13, min: 8, max: 18 },
+    sleevePlacketWidth: { pct: 13, min: 0, max: 18 },
     boxPleatWidth: { pct: 7, min: 4, max: 10 },
     boxPleatFold: { pct: 15, min: 10, max: 20 },
 
@@ -250,8 +250,8 @@ export default {
     sleevecapQ4Spread2: { pct: 7, min: 4, max: 20 },
     sleeveWidthGuarantee: { pct: 90, min: 25, max: 100 },
     sleeveLengthBonus: { pct: 0, min: -40, max: 10 },
-    sleevePlacketLength: { pct: 25, min: 15, max: 35 },
-    waistEase: { pct: 15, min: -10, max: 35 },
+    sleevePlacketLength: { pct: 25, min: 0, max: 35 },
+    waistEase: { pct: 15, min: -15, max: 35 },
     backDartShaping: { pct: 25, min: 5, max: 75 },
   },
 }
