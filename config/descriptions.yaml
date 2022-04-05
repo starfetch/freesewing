@@ -65,6 +65,7 @@ plugin-validate: 'A FreeSewing plugin that validates aspects of your code'
 plugin-versionfree-svg: 'A FreeSewing plugin to keep version info out of your SVG to allow easy diffs across versions'
 plugintest: 'A FreeSewing pattern to test (y)our plugins'
 prettier-config: "FreeSewing's shared configuration for prettier"
+pythia: 'A FreeSewing pattern for a paenula cloak'
 remark-jargon: 'A Remark plugin for jargon terms'
 rendertest: 'A FreeSewing pattern to test (y)our render engine our CSS'
 sandy: 'A FreeSewing pattern for a circle skirt'

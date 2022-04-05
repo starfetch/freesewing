@@ -124,6 +124,8 @@ packageJson:
     files:
       - index.json
       - package.json
+  pythia: &starf
+    author: starfetch (https://github.com/starfetch)
   sandy:
     author: AlfaLyr (https://github.com/alfalyr)
   strapi:
