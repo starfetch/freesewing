@@ -59,14 +59,14 @@ export default {
 	headRatio: {pct: 100, min: 80, max: 120},
 	lengthBonus:{ pct: 101, min: 60, max: 140 },
 	length: {
-	    list: ['ToBust',
-		   'ToWaist',
-		   'ToHips',
-		   'ToUpperLeg',
-		   'ToKnee',
-		   'ToAnkle',
-		   'ToFloor'],
-	    dflt: 'ToKnee'
+	    list: ['toBust',
+		   'toWaist',
+		   'toHips',
+		   'toUpperLeg',
+		   'toKnee',
+		   'toAnkle',
+		   'toFloor'],
+	    dflt: 'toKnee'
 	},
 	draftForUnderbust: { bool: false },
 	neckRatio: {pct: 120, min: 95, max: 130},

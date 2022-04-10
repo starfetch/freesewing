@@ -13,27 +13,47 @@ export default function(part) {
 	sa,
 	paperless,
 	store,
+	utils,
     } = part.shorthand();
 
     // set different lengths of paenula
-    let ref_point = measurements.hpsToWaistBack
-    let hem_pos
+//    let ref_point = measurements.hpsToWaistBack
+ //   let hem_pos
     
-    if (options.length === 'toBust'){
-	ref_point = measurements.hpsToBust;
-	if (options.draftForUnderbust)
-	{hem_pos =  measurements.bustPointToUnderbust}
-	else {hem_pos = 0}
-    }
-    if (options.length === 'toWaist'){hem_pos = 0}
-    if (options.length === 'toKnee'){hem_pos = measurements.waistToKnee}
-    if (options.length === 'toHips'){hem_pos = measurements.waistToHips}
-    if (options.length === 'toUpperLeg'){hem_pos = measurements.waistToUpperLeg}
-    if (options.length === 'toAnkle'){hem_pos = 0.9*measurements.waistToFloor}
-    if (options.length === 'toFloor'){hem_pos = measurements.waistToFloor}
+  //  if (options.length === 'toBust'){/
+//	ref_point = measurements.hpsToBust;
+//	if (options.draftForUnderbust)
+//	{hem_pos =  measurements.bustPointToUnderbust}
+//	else {hem_pos = 0}
+//    }
+//    if (options.length === 'toWaist'){hem_pos = 0}
+//    if (options.length === 'toKnee'){hem_pos = measurements.waistToKnee}
+//    if (options.length === 'toHips'){hem_pos = measurements.waistToHips}
+//    if (options.length === 'toUpperLeg'){hem_pos = measurements.waistToUpperLeg}
+//    if (options.length === 'toAnkle'){hem_pos = 0.9*measurements.waistToFloor}
+ //   if (options.length === 'toFloor'){hem_pos = measurements.waistToFloor}
 
+    // Store length and width
+    store.set('length', (
+	(options.length === 'toBust')
+	    ? measurements.hpsToBust + (
+		(options.draftForUnderbust)
+		    ? measurements.bustPointToUnderbust
+		    : 0
+	    )
+	    : measurements.hpsToWaistBack + (
+		(options.length === 'toAnkle')
+		    ? 0.9 * measurements.waistToFloor
+		    : measurements[`waist${utils.capitalize(options.length)}`]
+		//(options.length === 'toWaist')
+		 //   ? 0
+		 //   : measurements[`waist${utils.capitalize(options.length)}`]
+	    )
+    ) * options.lengthBonus)
+    
     // define some variables
-    let length = (ref_point + hem_pos) * options.lengthBonus
+   // let length = store.get('length')
+    //    let length = (ref_point + hem_pos) * options.lengthBonus
     let hneck = (measurements.neck/2)*options.neckRatio*options.closure
 
     // make points
@@ -53,7 +73,7 @@ export default function(part) {
 	from: points.neckLeft,
 	to: points.neckBottom,
 	via: points.neckLeftBottom,
-	radius: length,
+	radius: store.get('length'),
 	prefix: "neckLeft",
     })
 
@@ -68,8 +88,8 @@ export default function(part) {
 	else tweak = tweak * 1.02;
     } while (Math.abs(delta) > 1);
 
-    points.bottom = points.neckLeftEnd.shift(-90,length)
-    points.topLeft = points.neckLeftStart.shift(180,length)
+    points.bottom = points.neckLeftEnd.shift(-90,store.get('length'))
+    points.topLeft = points.neckLeftStart.shift(180,store.get('length'))
     points.bottomLeft = points.topLeft.shift(-90,points.top.dy(points.bottom))
 
     // outer circle
@@ -77,7 +97,7 @@ export default function(part) {
 	from: points.topLeft,
 	to: points.bottom,
 	via: points.bottomLeft,
-	radius: 2*length,
+	radius: 2*store.get('length'),
 	prefix: "left",
 	render: true
     })
