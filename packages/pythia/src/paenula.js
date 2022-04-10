@@ -12,9 +12,8 @@ export default function(part) {
 	Snippet,
 	sa,
 	paperless,
-	store
+	store,
     } = part.shorthand();
-    
 
     // set different lengths of paenula
     let ref_point = measurements.hpsToWaistBack
@@ -32,12 +31,10 @@ export default function(part) {
     if (options.length === 'toUpperLeg'){hem_pos = measurements.waistToUpperLeg}
     if (options.length === 'toAnkle'){hem_pos = 0.9*measurements.waistToFloor}
     if (options.length === 'toFloor'){hem_pos = measurements.waistToFloor}
+
     // define some variables
-//    let hwidth = (measurements.shoulderToShoulder/2 + measurements.shoulderToElbow) * options.widthBonus
     let length = (ref_point + hem_pos) * options.lengthBonus
     let hneck = (measurements.neck/2)*options.neckRatio*options.closure
-
-    console.log({Length: length})
 
     // make points
     points.top = new Point(0,0)
@@ -58,7 +55,6 @@ export default function(part) {
 	via: points.neckLeftBottom,
 	radius: length,
 	prefix: "neckLeft",
-	//render: true
     })
 
 	// draw neck path
@@ -75,8 +71,6 @@ export default function(part) {
     points.bottom = points.neckLeftEnd.shift(-90,length)
     points.topLeft = points.neckLeftStart.shift(180,length)
     points.bottomLeft = points.topLeft.shift(-90,points.top.dy(points.bottom))
- //   points.topRight = points.topLeft.flipX()
-//    points.bottomRight = points.bottomLeft.flipX()
 
     // outer circle
     macro("round", {
@@ -87,7 +81,6 @@ export default function(part) {
 	prefix: "left",
 	render: true
     })
-
     
     // draw other paths
     paths.frontseam = new Path()
