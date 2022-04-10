@@ -20,18 +20,18 @@ export default function(part) {
     let ref_point = measurements.hpsToWaistBack
     let hem_pos
     
-    if (options.length === 'ToBust'){
+    if (options.length === 'toBust'){
 	ref_point = measurements.hpsToBust;
 	if (options.draftForUnderbust)
 	{hem_pos =  measurements.bustPointToUnderbust}
 	else {hem_pos = 0}
     }
-    if (options.length === 'ToWaist'){hem_pos = 0}
-    if (options.length === 'ToKnee'){hem_pos = measurements.waistToKnee}
-    if (options.length === 'ToHips'){hem_pos = measurements.waistToHips}
-    if (options.length === 'ToUpperLeg'){hem_pos = measurements.waistToUpperLeg}
-    if (options.length === 'ToAnkle'){hem_pos = 0.9*measurements.waistToFloor}
-    if (options.length === 'ToFloor'){hem_pos = measurements.waistToFloor}
+    if (options.length === 'toWaist'){hem_pos = 0}
+    if (options.length === 'toKnee'){hem_pos = measurements.waistToKnee}
+    if (options.length === 'toHips'){hem_pos = measurements.waistToHips}
+    if (options.length === 'toUpperLeg'){hem_pos = measurements.waistToUpperLeg}
+    if (options.length === 'toAnkle'){hem_pos = 0.9*measurements.waistToFloor}
+    if (options.length === 'toFloor'){hem_pos = measurements.waistToFloor}
     // define some variables
 //    let hwidth = (measurements.shoulderToShoulder/2 + measurements.shoulderToElbow) * options.widthBonus
     let length = (ref_point + hem_pos) * options.lengthBonus
