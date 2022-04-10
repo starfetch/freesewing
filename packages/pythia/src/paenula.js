@@ -19,8 +19,13 @@ export default function(part) {
     // set different lengths of paenula
     let ref_point = measurements.hpsToWaistBack
     let hem_pos
-    if (options.length === 'ToBust'){ref_point = measurements.hpsToBust,
-				     hem_pos = 0}
+    
+    if (options.length === 'ToBust'){
+	ref_point = measurements.hpsToBust;
+	if (options.draftForUnderbust)
+	{hem_pos =  measurements.bustPointToUnderbust}
+	else {hem_pos = 0}
+    }
     if (options.length === 'ToWaist'){hem_pos = 0}
     if (options.length === 'ToKnee'){hem_pos = measurements.waistToKnee}
     if (options.length === 'ToHips'){hem_pos = measurements.waistToHips}
@@ -31,6 +36,8 @@ export default function(part) {
 //    let hwidth = (measurements.shoulderToShoulder/2 + measurements.shoulderToElbow) * options.widthBonus
     let length = (ref_point + hem_pos) * options.lengthBonus
     let hneck = (measurements.neck/2)*options.neckRatio*options.closure
+
+    console.log({Length: length})
 
     // make points
     points.top = new Point(0,0)

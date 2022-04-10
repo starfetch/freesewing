@@ -27,6 +27,7 @@ export default {
 	,
 	style: ['lengthBonus',
 		'length',
+		'draftForUnderbust',
 		'closure',
 		{hood: [
 		    'hood',
@@ -44,8 +45,9 @@ export default {
 	'waistToHips',
 	'waistToFloor',
 	'waistToUpperLeg',
-	'hpsToBust'
+	'hpsToBust',
     ],
+    optionalMeasurements: ['bustPointToUnderbust'],
     dependencies: {hood: 'paenula'},
     inject: {},
     hide: [],
@@ -66,6 +68,7 @@ export default {
 		   'ToFloor'],
 	    dflt: 'ToKnee'
 	},
+	draftForUnderbust: { bool: false },
 	neckRatio: {pct: 120, min: 95, max: 130},
 	closure: {pct: 150, min: 110, max: 200},
 	hood: {bool: true},
