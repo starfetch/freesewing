@@ -55,7 +55,7 @@ export default {
     ],
     options: {
 	headRatio: {pct: 100, min: 80, max: 120},
-	lengthBonus:{ pct: 110, min: 60, max: 140 },
+	lengthBonus:{ pct: 101, min: 60, max: 140 },
 	length: {
 	    list: ['ToBust',
 		   'ToWaist',
