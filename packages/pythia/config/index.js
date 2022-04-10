@@ -59,9 +59,9 @@ export default {
 	length: {
 	    list: ['ToBust',
 		   'ToWaist',
-		   'ToKnee',
 		   'ToHips',
 		   'ToUpperLeg',
+		   'ToKnee',
 		   'ToFloor'],
 	    dflt: 'ToKnee'
 	},
