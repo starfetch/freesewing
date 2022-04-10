@@ -25,6 +25,7 @@ export default function(part) {
     if (options.length === 'ToKnee'){hem_pos = measurements.waistToKnee}
     if (options.length === 'ToHips'){hem_pos = measurements.waistToHips}
     if (options.length === 'ToUpperLeg'){hem_pos = measurements.waistToUpperLeg}
+    if (options.length === 'ToAnkle'){hem_pos = 0.9*measurements.waistToFloor}
     if (options.length === 'ToFloor'){hem_pos = measurements.waistToFloor}
     // define some variables
 //    let hwidth = (measurements.shoulderToShoulder/2 + measurements.shoulderToElbow) * options.widthBonus
