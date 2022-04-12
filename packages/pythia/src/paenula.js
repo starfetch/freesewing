@@ -42,14 +42,18 @@ export default function(part) {
 		    : 0
 	    )
 	    : measurements.hpsToWaistBack + (
-		(options.length === 'toAnkle')
-		    ? 0.9 * measurements.waistToFloor
+//		(options.length === 'toAnkle')
+//		    ? 0.9 * measurements.waistToFloor
+		(options.length === 'toCalf')
+		    ? 0.75 * measurements.waistToFloor
 		    : measurements[`waist${utils.capitalize(options.length)}`]
 		//(options.length === 'toWaist')
 		 //   ? 0
 		 //   : measurements[`waist${utils.capitalize(options.length)}`]
 	    )
     ) * options.lengthBonus)
+
+    console.log(store.get('length'))
     
     // define some variables
    // let length = store.get('length')
@@ -109,7 +113,9 @@ export default function(part) {
 	.setRender(false)
     
   store.set('neckOpening', paths.neck.length()) // store neckline seam for hood
+    console.log(store.get('neckOpening'))
 
+    
     paths.foldLine = new Path()
 	.move(points.bottom)
 	.line(points.neckLeftEnd)

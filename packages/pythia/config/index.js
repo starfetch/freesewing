@@ -64,6 +64,7 @@ export default {
 		   'toHips',
 		   'toUpperLeg',
 		   'toKnee',
+		   'toCalf',
 		   'toAnkle',
 		   'toFloor'],
 	    dflt: 'toKnee'
