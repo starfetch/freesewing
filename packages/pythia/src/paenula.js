@@ -33,7 +33,13 @@ export default function(part) {
 //    if (options.length === 'toAnkle'){hem_pos = 0.9*measurements.waistToFloor}
  //   if (options.length === 'toFloor'){hem_pos = measurements.waistToFloor}
 
-    // Store length and width
+    // Store length
+    let hem_pos
+    if (options.length === 'toWaist'){hem_pos = 0}
+    else if (options.length === 'toCalf'){hem_pos = 0.75*measurements.waistToFloor}
+    else if (options.length === 'toAnkle'){hem_pos = 0.9*measurements.waistToFloor}
+    else {hem_pos = measurements[`waist${utils.capitalize(options.length)}`]}
+
     store.set('length', (
 	(options.length === 'toBust')
 	    ? measurements.hpsToBust + (
@@ -41,17 +47,21 @@ export default function(part) {
 		    ? measurements.bustPointToUnderbust
 		    : 0
 	    )
-	    : measurements.hpsToWaistBack + (
+	    :    
+	    measurements.hpsToWaistBack + hem_pos)
+//	    (
+
+	      
 //		(options.length === 'toAnkle')
 //		    ? 0.9 * measurements.waistToFloor
-		(options.length === 'toCalf')
-		    ? 0.75 * measurements.waistToFloor
-		    : measurements[`waist${utils.capitalize(options.length)}`]
+//		(options.length === 'toCalf')
+//		    ? 0.75 * measurements.waistToFloor
+//		    : measurements[`waist${utils.capitalize(options.length)}`]
 		//(options.length === 'toWaist')
 		 //   ? 0
 		 //   : measurements[`waist${utils.capitalize(options.length)}`]
-	    )
-    ) * options.lengthBonus)
+//	    )
+	      * options.lengthBonus)
 
     console.log(store.get('length'))
     
