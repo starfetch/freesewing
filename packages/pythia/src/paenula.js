@@ -16,24 +16,7 @@ export default function(part) {
 	utils,
     } = part.shorthand();
 
-    // set different lengths of paenula
-//    let ref_point = measurements.hpsToWaistBack
- //   let hem_pos
-    
-  //  if (options.length === 'toBust'){/
-//	ref_point = measurements.hpsToBust;
-//	if (options.draftForUnderbust)
-//	{hem_pos =  measurements.bustPointToUnderbust}
-//	else {hem_pos = 0}
-//    }
-//    if (options.length === 'toWaist'){hem_pos = 0}
-//    if (options.length === 'toKnee'){hem_pos = measurements.waistToKnee}
-//    if (options.length === 'toHips'){hem_pos = measurements.waistToHips}
-//    if (options.length === 'toUpperLeg'){hem_pos = measurements.waistToUpperLeg}
-//    if (options.length === 'toAnkle'){hem_pos = 0.9*measurements.waistToFloor}
- //   if (options.length === 'toFloor'){hem_pos = measurements.waistToFloor}
-
-    // Store length
+    // Store different lengths of paenula
     let hem_pos
     if (options.length === 'toWaist'){hem_pos = 0}
     else if (options.length === 'toCalf'){hem_pos = 0.75*measurements.waistToFloor}
@@ -48,26 +31,10 @@ export default function(part) {
 		    : 0
 	    )
 	    :    
-	    measurements.hpsToWaistBack + hem_pos)
-//	    (
-
-	      
-//		(options.length === 'toAnkle')
-//		    ? 0.9 * measurements.waistToFloor
-//		(options.length === 'toCalf')
-//		    ? 0.75 * measurements.waistToFloor
-//		    : measurements[`waist${utils.capitalize(options.length)}`]
-		//(options.length === 'toWaist')
-		 //   ? 0
-		 //   : measurements[`waist${utils.capitalize(options.length)}`]
-//	    )
-	      * options.lengthBonus)
+	    measurements.hpsToWaistBack + hem_pos) * options.lengthBonus)
 
     console.log(store.get('length'))
     
-    // define some variables
-   // let length = store.get('length')
-    //    let length = (ref_point + hem_pos) * options.lengthBonus
     let hneck = (measurements.neck/2)*options.neckRatio*options.closure
 
     // make points
