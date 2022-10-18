@@ -62,7 +62,8 @@ contains several files, one for each language.
 
 <Warning>
 Please only edit the English language files (called `en.md`), 
-our translation software will handle the other languages.
+our translation software will handle the other languages. 
+Read more about translations in our [translation guide](/guides/translation).
 </Warning>
 - Click on the **Edit** button.
 ![edit button image](edit-button.png)
