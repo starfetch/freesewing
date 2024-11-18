@@ -136,7 +136,7 @@ function draftPaenula({
     paths.sa = paths.seam
       .offset(sa)
       .join(paths.hem.offset(sa * 2.5))
-      //.close()
+      .close()
       .addClass('fabric sa')
 
   /*
