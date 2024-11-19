@@ -219,16 +219,13 @@ function draftPaenula({
 export const paenula = {
   name: 'pythia.paenula',
   draft: draftPaenula,
-  measurements: [
-    'neck',
-    'head',
-    'hpsToWaistBack',
-    'waistToKnee',
-    'waistToHips',
-    'waistToFloor',
-    'waistToUpperLeg',
+  measurements: ['neck', 'hpsToWaistBack', 'waistToKnee'],
+  optionalMeasurements: [
     'hpsToBust',
     'bustPointToUnderbust',
+    'waistToHips',
+    'waistToUpperLeg',
+    'waistToFloor',
   ],
   options: {
     headRatio: { pct: 100, min: 80, max: 120, menu: 'fit' },
@@ -238,7 +235,10 @@ export const paenula = {
       dflt: 'toKnee',
       menu: 'style',
     },
-    draftForUnderbust: { bool: false, menu: 'fit' },
+    draftForUnderbust: {
+      bool: false,
+      menu: (settings) => (settings?.measurements?.bustPointToUnderbust ? 'fit' : false),
+    },
     neckRatio: { pct: 120, min: 95, max: 130, menu: 'fit' },
     closure: { pct: 150, min: 110, max: 200, menu: 'style' },
     hood: { bool: true, menu: 'style' },
