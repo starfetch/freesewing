@@ -1,3 +1,5 @@
+import { bool } from 'prop-types'
+
 function draftPaenula({
   Path,
   Point,
@@ -226,6 +228,7 @@ export const paenula = {
     'waistToFloor',
     'waistToUpperLeg',
     'hpsToBust',
+    'bustPointToUnderbust',
   ],
   options: {
     headRatio: { pct: 100, min: 80, max: 120, menu: 'fit' },
