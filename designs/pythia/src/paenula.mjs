@@ -17,22 +17,35 @@ function draftPaenula({
   part,
 }) {
   // Store different lengths of paenula
-  let hem_pos
-  if (options.length === 'toWaist') {
-    hem_pos = 0
-  } else if (options.length === 'toCalf') {
-    hem_pos = 0.75 * measurements.waistToFloor
-  } else if (options.length === 'toAnkle') {
-    hem_pos = 0.9 * measurements.waistToFloor
-  } else {
-    hem_pos = measurements[`waist${utils.capitalize(options.length)}`]
-    //store.flag.note({title: 'missingMeasure', desc: 'missingMeasureSetToDefault'})
+
+  let hem_pos =
+    options.length === 'toWaist'
+      ? //(measurements.hpsToWaistBack ?
+        0 //measurements.waistToKnee):
+      : options.length === 'toCalf'
+        ? 0.75 * measurements.waistToFloor
+        : options.length === 'toAnkle'
+          ? 0.9 * measurements.waistToFloor
+          : options.length === 'toBust'
+            ? measurements.hpsToBust +
+              (options.draftForUnderbust ? measurements.bustPointToUnderbust : 0)
+            : measurements[`waist${utils.capitalize(options.length)}`]
+
+  // check existance of optional measies
+  if (
+    (!measurements[`waist${utils.capitalize(options.length)}`] &&
+      !['toWaist', 'toCalf', 'toAnkle', 'toBust'].includes(options.length)) || // thanks, ChatGPT!
+    (['toCalf', 'toAnkle'].includes(options.length) && !measurements.waistToFloor) ||
+    (options.length === 'toBust' && !measurements.hpsToBust)
+  ) {
+    hem_pos = measurements.waistToKnee
+    store.flag.note({ title: 'missingMeasure', desc: 'missingMeasureSetToDefault' })
   }
 
   store.set(
     'length',
-    (options.length === 'toBust'
-      ? measurements.hpsToBust + (options.draftForUnderbust ? measurements.bustPointToUnderbust : 0)
+    (options.length === 'toBust' && measurements.hpsToBust
+      ? hem_pos
       : measurements.hpsToWaistBack + hem_pos) * options.lengthBonus
   )
 
