@@ -12,6 +12,7 @@ function draftPaenula({
   snippets,
   Snippet,
   store,
+  units,
   utils,
   part,
 }) {
@@ -25,6 +26,7 @@ function draftPaenula({
     hem_pos = 0.9 * measurements.waistToFloor
   } else {
     hem_pos = measurements[`waist${utils.capitalize(options.length)}`]
+    //store.flag.note({title: 'missingMeasure', desc: 'missingMeasureSetToDefault'})
   }
 
   store.set(
@@ -34,7 +36,11 @@ function draftPaenula({
       : measurements.hpsToWaistBack + hem_pos) * options.lengthBonus
   )
 
-  console.log(store.get('length'))
+  // TODO: proper referencable string
+  store.flag.info({
+    msg: 'Total Length',
+    notes: `${units(store.get('length'))}`,
+  })
 
   let hneck = (measurements.neck / 2) * options.neckRatio * options.closure
 
