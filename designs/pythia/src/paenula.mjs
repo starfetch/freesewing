@@ -131,13 +131,6 @@ function draftPaenula({
 
   paths.seam = paths.neck.join(paths.frontseam).attr('class', 'fabric')
 
-  // cut on fold
-  macro('cutonfold', {
-    from: points.bottom,
-    to: points.neckLeftEnd,
-    grainline: true,
-  })
-
   // seam allowance
   if (sa)
     paths.sa = paths.seam
@@ -156,6 +149,13 @@ function draftPaenula({
    * Cut list
    */
   store.cutlist.addCut({ cut: 1, from: 'fabric', onFold: true })
+
+  // cut on fold
+  macro('cutonfold', {
+    from: points.bottom,
+    to: points.neckLeftEnd,
+    grainline: true,
+  })
 
   /*
    * Add the logo
