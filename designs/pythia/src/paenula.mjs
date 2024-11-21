@@ -20,8 +20,7 @@ function draftPaenula({
 
   let hem_pos =
     options.length === 'toWaist'
-      ? //(measurements.hpsToWaistBack ?
-        0 //measurements.waistToKnee):
+      ? 0
       : options.length === 'toCalf'
         ? 0.75 * measurements.waistToFloor
         : options.length === 'toAnkle'
@@ -73,7 +72,6 @@ function draftPaenula({
       to: points.neckBottom,
       via: points.neckLeftBottom,
       radius: store.get('length'),
-      //prefix: "neckLeft",
       hide: false,
     }),
   }
@@ -91,7 +89,6 @@ function draftPaenula({
   paths.neck = new Path()
     .move(points.neckLeftEnd)
     .curve(points.neckLeftCp2, points.neckLeftCp1, points.neckLeftStart)
-  //.hide()
 
   points.bottom = points.neckLeftEnd.shift(-90, store.get('length'))
   points.topLeft = points.neckLeftStart.shift(180, store.get('length'))
@@ -105,7 +102,6 @@ function draftPaenula({
       to: points.bottom,
       via: points.bottomLeft,
       radius: 2 * store.get('length'),
-      //prefix: "left",
       hide: false,
     }),
   }
@@ -164,13 +160,13 @@ function draftPaenula({
   /*
    * Add the logo
    */
-  points.logo = points.neckLeftStart.shift(45, points.bottom.dy(points.top) / 4) //points.title.shift(70, 55)
+  points.logo = points.neckLeftStart.shift(45, points.bottom.dy(points.top) / 4)
   snippets.logo = new Snippet('logo', points.logo)
 
   /*
    * Add the title
    */
-  points.title = points.logo.shift(-110, 50) //points.neckLeftBottom.shift(-90, 45)
+  points.title = points.logo.shift(-110, 50)
   macro('title', {
     at: points.title,
     nr: 1,
