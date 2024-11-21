@@ -17,10 +17,10 @@ function draftHood({
   if (!options.hood) return part
 
   // get stored values
-  let neck = store.get('neckOpening')
+  const neck = store.get('neckOpening')
 
   // create some variables
-  let head = 0.65 * measurements.head * options.headRatio
+  const head = 0.65 * measurements.head * options.headRatio
 
   // check if neck seam is bigger than head depth
   let depth
@@ -30,8 +30,8 @@ function draftHood({
     depth = head
   }
 
-  let hoodDepth = depth * options.hoodDepth
-  let hoodHeight = head * options.hoodHeight
+  const hoodDepth = depth * options.hoodDepth
+  const hoodHeight = head * options.hoodHeight
 
   // make points
   points.top = new Point(0, 0)

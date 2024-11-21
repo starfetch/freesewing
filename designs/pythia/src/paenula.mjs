@@ -54,7 +54,7 @@ function draftPaenula({
     notes: `${units(store.get('length'))}`,
   })
 
-  let hneck = (measurements.neck / 2) * options.neckRatio * options.closure
+  const hneck = (measurements.neck / 2) * options.neckRatio * options.closure
 
   // make points
   points.top = new Point(0, 0)
