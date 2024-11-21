@@ -60,48 +60,38 @@ function draftPaenula({
   // make points
   points.top = new Point(0, 0)
 
-  // optimise neck opening
-  let tweak = 1
-  let target = hneck
-  let delta
+  // draw neck opening
+  points.neckLeft = points.top.shift(180, hneck)
+  points.neckBottom = points.top.shift(-90, hneck)
+  points.neckLeftBottom = points.neckLeft.shift(-90, points.top.dy(points.neckBottom))
 
-  do {
-    points.neckLeft = points.top.shift(180, hneck * tweak)
-    points.neckBottom = points.top.shift(-90, hneck * tweak)
-    points.neckLeftBottom = points.neckLeft.shift(-90, points.top.dy(points.neckBottom))
+  // inner circle
+  const ids1 = {
+    neckLeft: macro('round', {
+      id: 'neckLeft',
+      from: points.neckLeft,
+      to: points.neckBottom,
+      via: points.neckLeftBottom,
+      radius: store.get('length'),
+      //prefix: "neckLeft",
+      hide: false,
+    }),
+  }
 
-    // inner circle
-    const ids1 = {
-      neckLeft: macro('round', {
-        id: 'neckLeft',
-        from: points.neckLeft,
-        to: points.neckBottom,
-        via: points.neckLeftBottom,
-        radius: store.get('length'),
-        //prefix: "neckLeft",
-        hide: false,
-      }),
+  /*
+   * Create points from them with easy names
+   */
+  for (const side in ids1) {
+    for (const id of ['start', 'cp1', 'cp2', 'end']) {
+      points[`${side}${utils.capitalize(id)}`] = points[ids1[side].points[id]].copy()
     }
+  }
 
-    /*
-     * Create points from them with easy names
-     */
-    for (const side in ids1) {
-      for (const id of ['start', 'cp1', 'cp2', 'end']) {
-        points[`${side}${utils.capitalize(id)}`] = points[ids1[side].points[id]].copy()
-      }
-    }
-
-    // draw neck path
-    paths.neck = new Path()
-      .move(points.neckLeftEnd)
-      .curve(points.neckLeftCp2, points.neckLeftCp1, points.neckLeftStart)
-    //.hide()
-
-    delta = paths.neck.length() - target
-    if (delta > 0) tweak = tweak * 0.99
-    else tweak = tweak * 1.02
-  } while (Math.abs(delta) > 1)
+  // draw neck path
+  paths.neck = new Path()
+    .move(points.neckLeftEnd)
+    .curve(points.neckLeftCp2, points.neckLeftCp1, points.neckLeftStart)
+  //.hide()
 
   points.bottom = points.neckLeftEnd.shift(-90, store.get('length'))
   points.topLeft = points.neckLeftStart.shift(180, store.get('length'))
